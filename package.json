@@ -1,0 +1,18 @@
+{
+  "name": "currencyapi-node",
+  "description": "Npm package for the CurrencyApi.net JSON & XML live currency feed",
+  "keywords": ["currency","feed","api","live-rates", "json currency", "crypto"],
+  "homepage": "https://currencyapi.net",
+  "authors": [
+    {
+      "name": "Oli Girling",
+      "email": "support@currencyapi.net",
+      "homepage": "https://currencyapi.net",
+      "role": "Developer"
+    }
+  ],
+  "version": "1.0.0",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
