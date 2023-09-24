@@ -1,7 +1,8 @@
 # CurrencyApi NodeJs wrapper 
 
 
-[![Latest Stable Version]([![npm version](https://badge.fury.io/js/currencyapi-node.svg)](https://badge.fury.io/js/currencyapi-node))](https://www.npmjs.com/package/currencyapi-node) [![Coverage Status](https://coveralls.io/repos/github/houseofapis/currencyapi-node/badge.svg?branch=master)](https://coveralls.io/github/houseofapis/currencyapi-node?branch=master) 
+[![npm version](https://badge.fury.io/js/currencyapi-node.svg)](https://www.npmjs.com/package/currencyapi-node) [![Coverage Status](https://coveralls.io/repos/github/houseofapis/currencyapi-node/badge.svg?branch=master)](https://coveralls.io/github/houseofapis/currencyapi-node?branch=master) 
+
 
 <a href="https://currencyapi.net" title="CurrencyApi">CurrencyApi.net</a> provides live currency rates via a REST API. A live currency feed for over 152 currencies, including physical (USD, GBP, EUR + more) and cryptos (Bitcoin, Litecoin, Ethereum + more). A JSON and XML currency api updated every 60 seconds. 
 
