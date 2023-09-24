@@ -1,4 +1,4 @@
-const client = require("node-fetch");
+const fetch = require("node-fetch");
 
 /**
  * Default output format
@@ -22,18 +22,6 @@ const API_VERSION = 'v1';
 const DEFAULT_BASE = 'USD';
 
 /**
- * Version of the application
- * @type {string}
- */
-const APPLICATION_VERSION = '1.0.0'
-
-/**
- * Application name sent as user-agent
- * @type {string}
- */
-const APPLICATION = 'CurrencyApi_npm_' + APPLICATION_VERSION
-
-/**
  * Build up the URL based on the endpoint and params
  *
  * @param {string} endpoint
@@ -41,7 +29,7 @@ const APPLICATION = 'CurrencyApi_npm_' + APPLICATION_VERSION
  * @param {Object} params
  * @returns {string}
  */
-const buildUrl = (endpoint, key, params = {}) => {
+const buildUrl = (endpoint, key, params) => {
     let ret = [];
     for (let param in params) {
         ret.push(encodeURIComponent(param) + '=' + encodeURIComponent(params[param]));
@@ -87,9 +75,12 @@ class Endpoint {
      * @returns {Promise<*>}
      */
     async get() {
-        const headers = {'application': APPLICATION, 'user-agent': APPLICATION}
-        const response = await client(buildUrl(this.endpoint, this.key, this.getParams()), {headers: headers})
         const isXml = this.getParams().output === 'XML'
+        let headers = {
+            'X-Sdk': 'node'
+        }
+        headers['Content-Type'] = isXml ? 'application/xml' : 'application/json'
+        const response = await fetch(buildUrl(this.endpoint, this.key, this.getParams()), {headers: headers})
         return isXml ? await response.text() : await response.json()
     }
 
