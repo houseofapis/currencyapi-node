@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 .PHONY: help
 LOCAL_DOCKER_IMAGE=houseofapis/currencyapi-node
-CONTAINER_NAME=currencyapi-node
+CONTAINER_NAME=currencyapi-node-sdk
 WORKING_DIR=/application
 PORT=7003
 DOCKER_COMMAND=docker run --rm -v ${PWD}:${WORKING_DIR} -w ${WORKING_DIR} --name ${CONTAINER_NAME} -p ${PORT}:${PORT} -it ${LOCAL_DOCKER_IMAGE}

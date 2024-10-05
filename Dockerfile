@@ -1,4 +1,4 @@
-FROM node:18-slim
+FROM node:22-slim
 
 USER node
 ARG APP_DIR=/home/node/app
