@@ -29,8 +29,8 @@ Alternatively keep reading below.
 
 #### Prerequisites
 
-- Minimum NodeJs v8 (npm v5 and above)
-- Working on NodeJs v18
+- Minimum NodeJs v16 (npm v7 and above)
+- Tested on NodeJs v16, v18, v20, v22, v24
 - Free or Paid account with CurrencyApi.net
 
 #### Test Coverage

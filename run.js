@@ -1,5 +1,5 @@
 // run.js
-import CurrencyApi from './src/CurrencyApi.js';
+const CurrencyApi = require('./src/CurrencyApi');
 
 const currency = new CurrencyApi('YOUR_API_KEY');
 
