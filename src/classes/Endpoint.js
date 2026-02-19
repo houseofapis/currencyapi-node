@@ -14,7 +14,7 @@ const BASE_URL = 'https://currencyapi.net/api/';
 /**
  * Version of the API
  */
-const API_VERSION = 'v1';
+const API_VERSION = 'v2';
 
 /**
  * Default base currency

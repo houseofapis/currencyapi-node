@@ -4,6 +4,7 @@ const History = require('./../src/classes/History')
 const Timeframe = require('./../src/classes/Timeframe')
 const Convert = require('./../src/classes/Convert')
 const Currencies = require('./../src/classes/Currencies')
+const Ohlc = require('./../src/classes/Ohlc')
 
 let currencyApi
 let invalidKey = 'invalidKey'
@@ -24,5 +25,6 @@ describe("Setting CurrencyApi", () => {
         expect(currencyApi.timeframe()).toBeInstanceOf(Timeframe);
         expect(currencyApi.convert()).toBeInstanceOf(Convert);
         expect(currencyApi.currencies()).toBeInstanceOf(Currencies);
+        expect(currencyApi.ohlc()).toBeInstanceOf(Ohlc);
     })
 })

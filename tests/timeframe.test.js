@@ -69,7 +69,7 @@ describe("Fetching timeframe works as expected", () => {
         timeframe.startDate('2023-01-02')
         timeframe.endDate('2023-01-03')
         const response = await timeframe.get();
-        const expectedUrl = 'https://currencyapi.net/api/v1/timeframe?key=invalidKey&output=JSON&base=USD&start_date=2023-01-02&end_date=2023-01-03'
+        const expectedUrl = 'https://currencyapi.net/api/v2/timeframe?key=invalidKey&output=JSON&base=USD&start_date=2023-01-02&end_date=2023-01-03'
 
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 
@@ -96,7 +96,7 @@ describe("Fetching timeframe works as expected", () => {
         timeframe.startDate('2023-01-02')
         timeframe.endDate('2023-01-03')
         const response = await timeframe.get();
-        const expectedUrl = 'https://currencyapi.net/api/v1/timeframe?key=invalidKey&output=XML&base=USD&start_date=2023-01-02&end_date=2023-01-03'
+        const expectedUrl = 'https://currencyapi.net/api/v2/timeframe?key=invalidKey&output=XML&base=USD&start_date=2023-01-02&end_date=2023-01-03'
 
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 

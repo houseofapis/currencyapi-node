@@ -1,10 +1,10 @@
-# CurrencyApi NodeJs wrapper 
+# CurrencyApi NodeJs wrapper
 
 
-[![npm version](https://badge.fury.io/js/currencyapi-node.svg)](https://www.npmjs.com/package/currencyapi-node) [![Coverage Status](https://coveralls.io/repos/github/houseofapis/currencyapi-node/badge.svg?branch=master)](https://coveralls.io/github/houseofapis/currencyapi-node?branch=master) 
+[![npm version](https://badge.fury.io/js/currencyapi-node.svg)](https://www.npmjs.com/package/currencyapi-node) [![Coverage Status](https://coveralls.io/repos/github/houseofapis/currencyapi-node/badge.svg?branch=master)](https://coveralls.io/github/houseofapis/currencyapi-node?branch=master)
 
 
-<a href="https://currencyapi.net" title="CurrencyApi">CurrencyApi.net</a> provides live currency rates via a REST API. A live currency feed for over 152 currencies, including physical (USD, GBP, EUR + more) and cryptos (Bitcoin, Litecoin, Ethereum + more). A JSON and XML currency api updated every 60 seconds. 
+<a href="https://currencyapi.net" title="CurrencyApi">CurrencyApi.net</a> provides live currency rates via a REST API. A live currency feed for over 152 currencies, including physical (USD, GBP, EUR + more) and cryptos (Bitcoin, Litecoin, Ethereum + more). A JSON and XML currency api updated every 60 seconds.
 
 Features:
 
@@ -13,6 +13,7 @@ Features:
 - Popular cryptocurrencies included; Bitcoin, Litecoin etc.
 - Convert currencies on the fly with the convert endpoint.
 - Historical currency rates back to year 2000.
+- OHLC (candlestick) data with multiple intervals.
 - Easy to follow <a href="https://currencyapi.net/documentation" title="currency-api-documentation">documentation</a>
 
 Signup for a free or paid account <a href="https://currencyapi.net/#pricing-sec" title="currency-api-pricing">here</a>.
@@ -182,4 +183,39 @@ const result = await currency
 | `startDate()` | The historical date you wish to receive the currency conversions from. This should be formatted as YYYY-MM-DD. **Required**. |
 | `endDate()` | The historical date you wish to receive the currency conversions until. This should be formatted as YYYY-MM-DD. **Required**. |
 | `base()` | The base currency you wish you receive the currency conversions for. This will output all currency conversions for that currency. **Default: USD**. |
+| `output()` | Response output in either JSON or XML. **Default: JSON**. |
+
+<br>
+
+### OHLC (candlestick data):
+
+```javascript
+const result = await currency
+                      .ohlc()
+                      .currency('GBP')
+                      .date('2024-01-13')
+                      .get()
+```
+
+Example with all available methods:
+
+```javascript
+const result = await currency
+                      .ohlc()
+                      .currency('GBP')
+                      .date('2024-01-13')
+                      .interval('1h')
+                      .base('USD')
+                      .output('JSON')
+                      .get()
+```
+
+**Available methods for ohlc endpoint**
+
+| Methods | Description |
+| --- | --- |
+| `currency()` | The quote currency to retrieve OHLC data for. This will be a three letter ISO 4217 currency code. **Required**. |
+| `date()` | The date to retrieve OHLC data for. This should be formatted as YYYY-MM-DD. **Required**. |
+| `interval()` | The time interval for each candle. Allowed values: `5m`, `15m`, `30m`, `1h`, `4h`, `12h`, `1d`. **Default: 1d**. |
+| `base()` | The base currency. **Default: USD**. |
 | `output()` | Response output in either JSON or XML. **Default: JSON**. |

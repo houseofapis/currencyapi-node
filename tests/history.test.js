@@ -59,7 +59,7 @@ describe("Fetching history works as expected", () => {
         )
         history.date('2023-01-02')
         const response = await history.get();
-        const expectedUrl = 'https://currencyapi.net/api/v1/history?key=invalidKey&output=JSON&base=USD&date=2023-01-02'
+        const expectedUrl = 'https://currencyapi.net/api/v2/history?key=invalidKey&output=JSON&base=USD&date=2023-01-02'
 
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 
@@ -85,7 +85,7 @@ describe("Fetching history works as expected", () => {
         history.date('2023-01-02')
         history.base('GbP')
         const response = await history.get();
-        const expectedUrl = 'https://currencyapi.net/api/v1/history?key=invalidKey&output=XML&base=GBP&date=2023-01-02'
+        const expectedUrl = 'https://currencyapi.net/api/v2/history?key=invalidKey&output=XML&base=GBP&date=2023-01-02'
 
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 

@@ -3,6 +3,7 @@ const Convert = require('./classes/Convert')
 const History = require('./classes/History')
 const Timeframe = require('./classes/Timeframe')
 const Currencies = require('./classes/Currencies')
+const Ohlc = require('./classes/Ohlc')
 
 /**
  * @class CurrencyApi
@@ -62,6 +63,15 @@ class CurrencyApi
      */
     currencies() {
         return new Currencies(this.key)
+    }
+
+    /**
+     * Use the ohlc endpoint
+     *
+     * @returns {Ohlc}
+     */
+    ohlc() {
+        return new Ohlc(this.key)
     }
 
 }

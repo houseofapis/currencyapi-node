@@ -69,7 +69,7 @@ describe("Fetching convert works as expected", () => {
         convert.from('GbP')
         convert.to('UsD')
         const response = await convert.get();
-        const expectedUrl = 'https://currencyapi.net/api/v1/convert?key=invalidKey&output=JSON&amount=10&from=GBP&to=USD'
+        const expectedUrl = 'https://currencyapi.net/api/v2/convert?key=invalidKey&output=JSON&amount=10&from=GBP&to=USD'
 
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 
@@ -100,7 +100,7 @@ describe("Fetching convert works as expected", () => {
         convert.to('UsD')
         const response = await convert.get()
 
-        const expectedUrl = 'https://currencyapi.net/api/v1/convert?key=invalidKey&output=XML&amount=10&from=GBP&to=USD'
+        const expectedUrl = 'https://currencyapi.net/api/v2/convert?key=invalidKey&output=XML&amount=10&from=GBP&to=USD'
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 
             "Content-Type": "application/xml",
