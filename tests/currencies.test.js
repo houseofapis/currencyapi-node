@@ -42,7 +42,7 @@ describe("Fetching currencies works as expected", () => {
           })
         )
         const response = await currencies.get();
-        const expectedUrl = 'https://currencyapi.net/api/v1/currencies?key=invalidKey&output=JSON'
+        const expectedUrl = 'https://currencyapi.net/api/v2/currencies?key=invalidKey&output=JSON'
 
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 
@@ -67,7 +67,7 @@ describe("Fetching currencies works as expected", () => {
         currencies.output('XmL')
         const response = await currencies.get()
 
-        const expectedUrl = 'https://currencyapi.net/api/v1/currencies?key=invalidKey&output=XML'
+        const expectedUrl = 'https://currencyapi.net/api/v2/currencies?key=invalidKey&output=XML'
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: { 
             "Content-Type": "application/xml",

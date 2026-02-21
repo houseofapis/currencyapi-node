@@ -27,3 +27,15 @@ jobs:
 
     - name: Upload coverage to Coveralls
       uses: coverallsapp/github-action@v2
+      with:
+        parallel: true
+        flag-name: node-${{ matrix.node-version }}
+
+  finish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Close parallel build
+      uses: coverallsapp/github-action@v2
+      with:
+        parallel-finished: true

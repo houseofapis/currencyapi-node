@@ -62,7 +62,7 @@ describe("Fetching rates works as expected", () => {
           })
         )
         const response = await rates.get();
-        expect(fetch).toHaveBeenLastCalledWith("https://currencyapi.net/api/v1/rates?key=invalidKey&output=JSON&base=USD", {
+        expect(fetch).toHaveBeenLastCalledWith("https://currencyapi.net/api/v2/rates?key=invalidKey&output=JSON&base=USD", {
           headers: { 
             "Content-Type": "application/json",
             "X-Sdk": "node"
@@ -91,7 +91,7 @@ describe("Fetching rates works as expected", () => {
         rates.output('XmL')
         const response = await rates.get()
 
-        expect(fetch).toHaveBeenLastCalledWith("https://currencyapi.net/api/v1/rates?key=invalidKey&output=XML&base=USD", {
+        expect(fetch).toHaveBeenLastCalledWith("https://currencyapi.net/api/v2/rates?key=invalidKey&output=XML&base=USD", {
           headers: { 
             "Content-Type": "application/xml",
             "X-Sdk": "node"
