@@ -3,7 +3,7 @@
 
 [![npm version](https://badge.fury.io/js/currencyapi-node.svg)](https://www.npmjs.com/package/currencyapi-node) [![Coverage Status](https://coveralls.io/repos/github/houseofapis/currencyapi-node/badge.svg?branch=master)](https://coveralls.io/github/houseofapis/currencyapi-node?branch=master)
 
-> **Upgrading from v1.x?** The v1 API will be retired on **31 July 2026** (after which v1 requests redirect to v2 automatically). We recommend upgrading to `currencyapi-node@2.x` now to get v2 API support and the new [OHLC endpoint](#ohlc-candlestick-data). Run `npm install currencyapi-node@latest` to upgrade.
+> **Upgrading from v1.x?** From **31 July 2026**, all v1 API requests will be automatically redirected to v2 — your integration won't break, but we recommend upgrading to `currencyapi-node@2.x` now to get native v2 support and the new [OHLC endpoint](#ohlc-candlestick-data). Run `npm install currencyapi-node@latest` to upgrade.
 
 
 <a href="https://currencyapi.net" title="CurrencyApi">CurrencyApi.net</a> provides live currency rates via a REST API. A live currency feed for over 152 currencies, including physical (USD, GBP, EUR + more) and cryptos (Bitcoin, Litecoin, Ethereum + more). A JSON and XML currency api updated every 60 seconds.
