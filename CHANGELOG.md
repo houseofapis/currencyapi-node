@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2026-02-22
+
+### Changed
+- OHLC endpoint: renamed `currency()` to `quote()` and request parameter from `currency` to `quote` to align with API response field names.
+
 ## [2.0.0] - 2026-02-19
 
 ### Added

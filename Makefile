@@ -2,22 +2,24 @@
 .PHONY: help
 LOCAL_DOCKER_IMAGE=houseofapis/currencyapi-node
 CONTAINER_NAME=currencyapi-node-sdk
-WORKING_DIR=/application
+WORKING_DIR=/app
 PORT=7003
-DOCKER_COMMAND=docker run --rm -v ${PWD}:${WORKING_DIR} -w ${WORKING_DIR} --name ${CONTAINER_NAME} -p ${PORT}:${PORT} ${LOCAL_DOCKER_IMAGE}
-DOCKER_COMMAND_INTERACTIVE=docker run --rm -v ${PWD}:${WORKING_DIR} -w ${WORKING_DIR} --name ${CONTAINER_NAME} -p ${PORT}:${PORT} -it ${LOCAL_DOCKER_IMAGE}
+# Use official image so test/run work without building
+DOCKER_IMAGE ?= node:24-slim
+DOCKER_RUN = docker run --rm -v ${PWD}:${WORKING_DIR} -w ${WORKING_DIR} --name ${CONTAINER_NAME} -p ${PORT}:${PORT}
+DOCKER_RUN_IT = docker run --rm -v ${PWD}:${WORKING_DIR} -w ${WORKING_DIR} --name ${CONTAINER_NAME} -p ${PORT}:${PORT} -it
 
 build: ## Build docker image
 	docker build -t ${LOCAL_DOCKER_IMAGE} . --no-cache
 
-test: ## Run the tests
-	${DOCKER_COMMAND} npm test
+test: ## Run the tests (no build required)
+	${DOCKER_RUN} ${DOCKER_IMAGE} sh -c "npm ci 2>/dev/null || npm install && npm test"
 
 install: ## Npm install
-	${DOCKER_COMMAND} npm i
+	${DOCKER_RUN} ${DOCKER_IMAGE} npm ci 2>/dev/null || ${DOCKER_RUN} ${DOCKER_IMAGE} npm install
 
-run: ## Run test file
-	${DOCKER_COMMAND_INTERACTIVE} node run.js
+run: ## Run the run file (no build required)
+	${DOCKER_RUN_IT} ${DOCKER_IMAGE} sh -c "npm ci 2>/dev/null || npm install && node run.js"
 
 publish: ## Publish version (use: make publish OTP=123456 if 2FA enabled)
 	docker run --rm -v ${PWD}:${WORKING_DIR} -v ${HOME}/.npmrc:/home/node/.npmrc:ro -w ${WORKING_DIR} --name ${CONTAINER_NAME} ${LOCAL_DOCKER_IMAGE} npm publish $(if ${OTP},--otp=${OTP})

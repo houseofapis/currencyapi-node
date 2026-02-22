@@ -23,11 +23,11 @@ class Ohlc extends Endpoint {
     /**
      * Set the quote currency
      *
-     * @param {string} currency eg. 'GBP'
+     * @param {string} quote eg. 'GBP'
      * @returns {Ohlc}
      */
-    currency(currency) {
-        this.addParam('currency', currency.toUpperCase())
+    quote(quote) {
+        this.addParam('quote', quote.toUpperCase())
         return this
     }
 

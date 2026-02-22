@@ -22,11 +22,11 @@ describe("Setting Ohlc", () => {
         expect(params).toHaveProperty('interval', '1d')
     })
 
-    test('Set currency works and returns object', () => {
-        const setCurrency = ohlc.currency('gBp')
+    test('Set quote works and returns object', () => {
+        const setQuote = ohlc.quote('gBp')
         let params = ohlc.getParams()
-        expect(params).toHaveProperty('currency', 'GBP')
-        expect(setCurrency).toBeInstanceOf(Ohlc)
+        expect(params).toHaveProperty('quote', 'GBP')
+        expect(setQuote).toBeInstanceOf(Ohlc)
     })
 
     test('Set date works and returns object', () => {
@@ -66,10 +66,10 @@ describe("Setting Ohlc", () => {
     })
 
     test('Methods can be chained', () => {
-        const result = ohlc.currency('GBP').date('2024-01-13').interval('1h').base('USD')
+        const result = ohlc.quote('GBP').date('2024-01-13').interval('1h').base('USD')
         expect(result).toBeInstanceOf(Ohlc)
         let params = ohlc.getParams()
-        expect(params).toHaveProperty('currency', 'GBP')
+        expect(params).toHaveProperty('quote', 'GBP')
         expect(params).toHaveProperty('date', '2024-01-13')
         expect(params).toHaveProperty('interval', '1h')
         expect(params).toHaveProperty('base', 'USD')
@@ -103,9 +103,9 @@ describe("Fetching ohlc works as expected", () => {
               Promise.resolve(mockData)
           })
         )
-        ohlc.currency('GBP').date('2024-01-13').interval('1h')
+        ohlc.quote('GBP').date('2024-01-13').interval('1h')
         const response = await ohlc.get()
-        const expectedUrl = 'https://currencyapi.net/api/v2/ohlc?key=invalidKey&output=JSON&interval=1h&currency=GBP&date=2024-01-13'
+        const expectedUrl = 'https://currencyapi.net/api/v2/ohlc?key=invalidKey&output=JSON&interval=1h&quote=GBP&date=2024-01-13'
 
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: {
@@ -126,10 +126,10 @@ describe("Fetching ohlc works as expected", () => {
               Promise.resolve(mockData)
           })
         )
-        ohlc.output('XmL').currency('GBP').date('2024-01-13')
+        ohlc.output('XmL').quote('GBP').date('2024-01-13')
         const response = await ohlc.get()
 
-        const expectedUrl = 'https://currencyapi.net/api/v2/ohlc?key=invalidKey&output=XML&interval=1d&currency=GBP&date=2024-01-13'
+        const expectedUrl = 'https://currencyapi.net/api/v2/ohlc?key=invalidKey&output=XML&interval=1d&quote=GBP&date=2024-01-13'
         expect(fetch).toHaveBeenLastCalledWith(expectedUrl, {
           headers: {
             "Content-Type": "application/xml",

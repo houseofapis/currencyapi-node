@@ -194,7 +194,7 @@ const result = await currency
 ```javascript
 const result = await currency
                       .ohlc()
-                      .currency('GBP')
+                      .quote('GBP')
                       .date('2024-01-13')
                       .get()
 ```
@@ -204,7 +204,7 @@ Example with all available methods:
 ```javascript
 const result = await currency
                       .ohlc()
-                      .currency('GBP')
+                      .quote('GBP')
                       .date('2024-01-13')
                       .interval('1h')
                       .base('USD')
@@ -216,7 +216,7 @@ const result = await currency
 
 | Methods | Description |
 | --- | --- |
-| `currency()` | The quote currency to retrieve OHLC data for. This will be a three letter ISO 4217 currency code. **Required**. |
+| `quote()` | The quote currency to retrieve OHLC data for. This will be a three letter ISO 4217 currency code. **Required**. |
 | `date()` | The date to retrieve OHLC data for. This should be formatted as YYYY-MM-DD. **Required**. |
 | `interval()` | The time interval for each candle. Allowed values: `5m`, `15m`, `30m`, `1h`, `4h`, `12h`, `1d`. **Default: 1d**. |
 | `base()` | The base currency. **Default: USD**. |
